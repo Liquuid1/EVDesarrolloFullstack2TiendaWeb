@@ -1,0 +1,88 @@
+/* Colores corporativos */
+:root {
+  --rojo-empresa: #d62828;
+  --negro-empresa: #1a1a1a;
+  --blanco-suave: #828282; /* Blanco no brillante */
+}
+
+/* Aplicar color de fondo personalizado */
+body {
+  background-color: var(--blanco-suave);
+  color: var(--negro-empresa);
+}
+
+/* Ajustes de navbar */
+.navbar {
+  background-color: var(--negro-empresa) !important;
+}
+
+.navbar-brand span {
+  color: var(--blanco-suave);
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+  color: var(--blanco-suave);
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--rojo-empresa);
+}
+
+/* Footer colores */
+.footer {
+  background-color: var(--negro-empresa) !important;
+  color: var(--blanco-suave);
+}
+
+.footer a:hover {
+  color: var(--rojo-empresa);
+}
+
+#slogan {
+  color: var(--rojo-empresa);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.carousel-item img {
+  width: 100vw;
+  max-width: 100%;
+  height: 60vh;
+  max-height: 60vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  background: #1a1a1a;
+}
+
+
+#hero {
+  background: var(--negro-empresa);
+}
+
+#productos-destacados {
+  background: var(--blanco-suave);
+}
+
+.benefits-bar {
+  background: var(--rojo-empresa);
+  border-radius: 8px;
+  margin-top: 0;
+  margin-bottom: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  min-height: 38px; /* Altura delgada y visible */
+  display: flex;
+  align-items: center;
+}
+
+#blog-preview .card-img-top {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.blog-container {
+  background: var(--negro-empresa);
+  border-radius: 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
