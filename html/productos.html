@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/carrito.js"></script>
+  <script src="../js/zapatillas.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -14,8 +16,8 @@
       <div class="container-fluid">
         <!-- Logo / Nombre empresa -->
         <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img src="assets/img/logo.png" alt="Logo Empresa" width="40" height="40" class="me-2">
-          <span>Nombre Empresa</span>
+          <img src="../assets/img/logo-sin-letras.jpeg" alt="Logo Empresa" width="60" height="60" class="me-2">
+          <span>SNKR HOOD</span>
         </a>
 
         <!-- Botón responsive (hamburguesa) -->
@@ -27,8 +29,8 @@
         <!-- Opciones de navegación -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+            <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link active" href="productos.html">Productos</a></li>
             <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
             <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
@@ -38,12 +40,103 @@
           <div class="d-flex align-items-center">
             <a href="login.html" class="btn btn-outline-danger me-2">Login</a>
             <a href="registro.html" class="btn btn-danger me-3">Registro</a>
-            <a href="carrito.html" class="text-white fs-4">🛒</a>
+            <a href="#" class="text-white fs-4" data-bs-toggle="offcanvas" data-bs-target="#carritoOffcanvas" aria-controls="carritoOffcanvas">🛒</a>
           </div>
         </div>
       </div>
     </nav>
   </header>
+
+  <section class="py-2" id="breadcrumb-section">
+    <div class="container">
+      <h1 class="fw-bold mb-3" style="color: var(--negro-empresa);">Productos</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb px-2" style="background: var(--rojo-empresa); border-radius: 8px;">
+          <li class="breadcrumb-item"><a href="index.html" style="color: var(--negro-empresa); text-decoration: none;">Inicio</a></li>
+          <li class="breadcrumb-item active" aria-current="page" style="color: var(--negro-empresa);">Productos</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <section class="py-3" id="productos-filtros">
+    <div class="container">
+      <form class="row g-3 align-items-end justify-content-center">
+        <!-- Barra de búsqueda -->
+        <div class="col-12 col-md-5">
+          <label for="busquedaProducto" class="form-label fw-bold" style="color: var(--negro-empresa);">Buscar zapatilla</label>
+          <input type="text" class="form-control" id="busquedaProducto" placeholder="Nombre o modelo...">
+        </div>
+        <!-- Select de tallas -->
+        <div class="col-6 col-md-2">
+          <label for="filtroTalla" class="form-label fw-bold" style="color: var(--negro-empresa);">Talla</label>
+          <select class="form-select" id="filtroTalla">
+            <option selected>Todas las tallas</option>
+            <option>38</option>
+            <option>39</option>
+            <option>40</option>
+            <option>41</option>
+            <option>42</option>
+            <option>43</option>
+            <option>44</option>
+          </select>
+        </div>
+        <!-- Select de ordenamiento -->
+        <div class="col-6 col-md-3">
+          <label for="ordenarPor" class="form-label fw-bold" style="color: var(--negro-empresa);">Ordenar por</label>
+          <select class="form-select" id="ordenarPor">
+            <option selected>Más populares</option>
+            <option>Precio: menor a mayor</option>
+            <option>Precio: mayor a menor</option>
+          </select>
+        </div>
+        <!-- Botón de aplicar filtros -->
+        <div class="col-12 col-md-2 d-grid">
+          <button type="submit" class="btn btn-danger fw-bold">Aplicar filtros</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="productos-lista" class="py-4">
+    <div class="container">
+      <div id="zapatillasGrid" class="row g-4"></div>
+      <nav>
+        <ul id="paginacion" class="pagination justify-content-center mt-4"></ul>
+      </nav>
+    </div>
+  </section>
+
+
+  <!-- OFFCANVAS CARRITO -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="carritoOffcanvas" aria-labelledby="carritoOffcanvasLabel">
+    <div class="offcanvas-header bg-dark text-white">
+      <h5 class="offcanvas-title" id="carritoOffcanvasLabel">Tu carrito</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body bg-light">
+      <ul id="carritoLista" class="list-unstyled mb-4">
+        <!-- Ejemplo de producto en el carrito -->
+        <!-- Los productos se agregan dinámicamente con JS -->
+        <!--
+        <li class="d-flex align-items-center mb-3">
+          <img src="https://via.placeholder.com/60x40?text=Z1" alt="Nike Air Max" class="me-2 rounded" width="60" height="40">
+          <div class="flex-grow-1">
+            <span class="fw-bold">Nike Air Max</span>
+            <span class="ms-2 badge bg-secondary">Talla 41</span>
+          </div>
+          <span class="fw-bold text-danger ms-2">$89.990</span>
+          <button class="btn btn-sm btn-outline-danger ms-2" onclick="eliminarDelCarrito(1)">✕</button>
+        </li>
+        -->
+      </ul>
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <span class="fw-bold fs-5">Total:</span>
+        <span id="carritoTotal" class="fw-bold fs-5 text-danger">$0</span>
+      </div>
+      <button class="btn btn-danger w-100 fw-bold">Finalizar compra</button>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer mt-auto py-4 bg-dark text-white">
@@ -52,18 +145,18 @@
         
         <!-- Logo + descripción -->
         <div class="col-md-4 mb-3">
-          <a href="index.html" class="d-flex align-items-center mb-2 text-decoration-none text-white">
-            <img src="assets/img/logo.png" alt="Logo Empresa" width="40" height="40" class="me-2">
-            <span class="fs-5 fw-bold">Nombre Empresa</span>
+          <a href="../index.html" class="d-flex align-items-center mb-2 text-decoration-none text-white">
+            <img src="../assets/img/logo-sin-letras.jpeg" alt="Logo Empresa" width="40" height="40" class="me-2">
+            <span class="fs-5 fw-bold">SNKR HOOD</span>
           </a>
-          <p class="small">Breve descripción de la tienda o slogan (placeholder).</p>
+          <span id="slogan">Elevando tu estilo.</span>
         </div>
 
         <!-- Navegación rápida -->
         <div class="col-md-4 mb-3">
           <h6 class="fw-bold text-uppercase">Enlaces útiles</h6>
           <ul class="list-unstyled">
-            <li><a href="index.html" class="text-white text-decoration-none">Inicio</a></li>
+            <li><a href="../index.html" class="text-white text-decoration-none">Inicio</a></li>
             <li><a href="productos.html" class="text-white text-decoration-none">Productos</a></li>
             <li><a href="blog.html" class="text-white text-decoration-none">Blog</a></li>
             <li><a href="nosotros.html" class="text-white text-decoration-none">Nosotros</a></li>
@@ -74,12 +167,12 @@
         <!-- Contacto + redes -->
         <div class="col-md-4 mb-3">
           <h6 class="fw-bold text-uppercase">Contacto</h6>
-          <p class="mb-1">📧 correo@empresa.com</p>
+          <p class="mb-1">📧 contacto@snkrhood.com</p>
           <p class="mb-1">📞 +56 9 1234 5678</p>
           <div class="d-flex gap-3 mt-2">
             <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
             <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="text-white fs-5"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-white fs-5"><i class="bi bi-x"></i></a>
           </div>
         </div>
 
@@ -87,12 +180,12 @@
 
       <!-- Línea inferior -->
       <div class="text-center pt-3 border-top border-secondary">
-        <small>© 2025 Nombre Empresa. Todos los derechos reservados.</small>
+        <small>© 2025 SNKR HOOD. Todos los derechos reservados.</small>
       </div>
     </div>
   </footer>
 
-
+  <div id="mensajeCarrito" class="position-fixed top-0 end-0 p-3" style="z-index: 2000;"></div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
