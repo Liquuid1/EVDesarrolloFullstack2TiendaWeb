@@ -3,96 +3,192 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Registro | SNKR HOOD</title>
 </head>
 <body>
 <!-- HEADER -->
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
       <div class="container-fluid">
-        <!-- Logo / Nombre empresa -->
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img src="assets/img/logo.png" alt="Logo Empresa" width="40" height="40" class="me-2">
-          <span>Nombre Empresa</span>
+        <a class="navbar-brand d-flex align-items-center" href="../index.html">
+          <img src="../assets/img/logo-sin-letras.jpeg" alt="Logo Empresa" width="60" height="60" class="me-2">
+          <span>SNKR HOOD</span>
         </a>
-
-        <!-- Botón responsive (hamburguesa) -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <!-- Opciones de navegación -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
             <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
             <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
           </ul>
-
-          <!-- Acciones a la derecha -->
           <div class="d-flex align-items-center">
             <a href="login.html" class="btn btn-outline-danger me-2">Login</a>
             <a href="registro.html" class="btn btn-danger me-3">Registro</a>
-            <a href="carrito.html" class="text-white fs-4">🛒</a>
+            <a href="#" class="text-white fs-4" data-bs-toggle="offcanvas" data-bs-target="#carritoOffcanvas" aria-controls="carritoOffcanvas">🛒</a>
           </div>
         </div>
       </div>
     </nav>
   </header>
 
+  <!-- FORMULARIO DE REGISTRO -->
+  <main class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          <div class="card shadow border-0 rounded-4">
+            <div class="card-header bg-dark text-white fw-bold fs-5">Registro de usuario</div>
+            <div class="card-body">
+              <form id="formRegistro" novalidate>
+                <div class="mb-3">
+                  <label for="nombre" class="form-label fw-bold">Nombre completo</label>
+                  <input type="text" class="form-control" id="nombre" name="nombre" required minlength="3">
+                  <div class="invalid-feedback">Ingrese su nombre completo (mínimo 3 caracteres).</div>
+                </div>
+                <div class="mb-3">
+                  <label for="correo" class="form-label fw-bold">Correo electrónico</label>
+                  <input type="email" class="form-control" id="correo" name="correo" required>
+                  <div class="invalid-feedback">Ingrese un correo válido.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label fw-bold">Contraseña</label>
+                  <input type="password" class="form-control" id="password" name="password" required minlength="6">
+                  <div class="invalid-feedback">La contraseña debe tener al menos 6 caracteres.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="confirmPassword" class="form-label fw-bold">Confirmar contraseña</label>
+                  <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                  <div class="invalid-feedback">Las contraseñas no coinciden.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="telefono" class="form-label fw-bold">Teléfono (opcional)</label>
+                  <input type="tel" class="form-control" id="telefono" name="telefono" pattern="^(\+56)?\s?(\d{9})$" placeholder="+56 912345678">
+                  <div class="invalid-feedback">Ingrese un teléfono válido (ej: +56 912345678).</div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-12 col-md-6">
+                    <label for="region" class="form-label fw-bold">Región</label>
+                    <select class="form-select" id="region" name="region" required>
+                      <option value="">Seleccione una región...</option>
+                      <option>Región Metropolitana de Santiago</option>
+                      <option>Región de Valparaíso</option>
+                      <option>Región de O'Higgins</option>
+                      <option>Región del Maule</option>
+                      <option>Región de Biobío</option>
+                      <!-- Agrega más regiones si lo deseas -->
+                    </select>
+                    <div class="invalid-feedback">Seleccione una región.</div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="comuna" class="form-label fw-bold">Comuna</label>
+                    <select class="form-select" id="comuna" name="comuna" required>
+                      <option value="">Seleccione una comuna...</option>
+                      <option>Las Condes</option>
+                      <option>Providencia</option>
+                      <option>Maipú</option>
+                      <option>Viña del Mar</option>
+                      <option>Rancagua</option>
+                      <!-- Agrega más comunas si lo deseas -->
+                    </select>
+                    <div class="invalid-feedback">Seleccione una comuna.</div>
+                  </div>
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-danger fw-bold">Registrarme</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- OFFCANVAS CARRITO -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="carritoOffcanvas" aria-labelledby="carritoOffcanvasLabel">
+    <div class="offcanvas-header bg-dark text-white">
+      <h5 class="offcanvas-title" id="carritoOffcanvasLabel">Tu carrito</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body bg-light">
+      <ul id="carritoLista" class="list-unstyled mb-4"></ul>
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <span class="fw-bold fs-5">Total:</span>
+        <span id="carritoTotal" class="fw-bold fs-5 text-danger">$0</span>
+      </div>
+      <button class="btn btn-danger w-100 fw-bold">Finalizar compra</button>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer mt-auto py-4 bg-dark text-white">
     <div class="container">
       <div class="row">
-        
-        <!-- Logo + descripción -->
         <div class="col-md-4 mb-3">
-          <a href="index.html" class="d-flex align-items-center mb-2 text-decoration-none text-white">
-            <img src="assets/img/logo.png" alt="Logo Empresa" width="40" height="40" class="me-2">
-            <span class="fs-5 fw-bold">Nombre Empresa</span>
+          <a href="../index.html" class="d-flex align-items-center mb-2 text-decoration-none text-white">
+            <img src="../assets/img/logo-sin-letras.jpeg" alt="Logo Empresa" width="40" height="40" class="me-2">
+            <span class="fs-5 fw-bold">SNKR HOOD</span>
           </a>
-          <p class="small">Breve descripción de la tienda o slogan (placeholder).</p>
+          <span id="slogan">Elevando tu estilo.</span>
         </div>
-
-        <!-- Navegación rápida -->
         <div class="col-md-4 mb-3">
           <h6 class="fw-bold text-uppercase">Enlaces útiles</h6>
           <ul class="list-unstyled">
-            <li><a href="index.html" class="text-white text-decoration-none">Inicio</a></li>
+            <li><a href="../index.html" class="text-white text-decoration-none">Inicio</a></li>
             <li><a href="productos.html" class="text-white text-decoration-none">Productos</a></li>
             <li><a href="blog.html" class="text-white text-decoration-none">Blog</a></li>
             <li><a href="nosotros.html" class="text-white text-decoration-none">Nosotros</a></li>
             <li><a href="contacto.html" class="text-white text-decoration-none">Contacto</a></li>
           </ul>
         </div>
-
-        <!-- Contacto + redes -->
         <div class="col-md-4 mb-3">
           <h6 class="fw-bold text-uppercase">Contacto</h6>
-          <p class="mb-1">📧 correo@empresa.com</p>
+          <p class="mb-1">📧 contacto@snkrhood.com</p>
           <p class="mb-1">📞 +56 9 1234 5678</p>
           <div class="d-flex gap-3 mt-2">
             <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
             <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="text-white fs-5"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-white fs-5"><i class="bi bi-x"></i></a>
           </div>
         </div>
-
       </div>
-
-      <!-- Línea inferior -->
       <div class="text-center pt-3 border-top border-secondary">
-        <small>© 2025 Nombre Empresa. Todos los derechos reservados.</small>
+        <small>© 2025 SNKR HOOD. Todos los derechos reservados.</small>
       </div>
     </div>
   </footer>
 
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
-</html>
+  <div id="mensajeCarrito" class="position-fixed top-0 end-0 p-3" style="z-index: 2000;"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/carrito.js"></script>
+  <script>
+  // Validación Bootstrap personalizada
+  document.getElementById('formRegistro').addEventListener('submit', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const form = event.target;
+    // Validación de contraseñas
+    const pass = form.password.value;
+    const confirm = form.confirmPassword.value;
+    if (pass !== confirm) {
+      form.confirmPassword.setCustomValidity('Las contraseñas no coinciden');
+    } else {
+      form.confirmPassword.setCustomValidity('');
+    }
+    if (form.checkValidity()) {
+      // Aquí puedes agregar el registro real (AJAX, localStorage, etc.)
+      alert('¡Registro exitoso!');
+      form.reset();
+      form.classList.remove('was-validated');
+    } else {
+      form.classList.add('was-validated');
+    }
+  });
+  </script>

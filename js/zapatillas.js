@@ -2,20 +2,31 @@ let filtroBusqueda = '';
 let filtroTalla = 'Todas las tallas';
 let filtroOrden = 'Más populares';
 
-const zapatillas = Array.from({ length: 50 }, (_, i) => {
-  const nombre = `Modelo ${i + 1}`;
-  const precio = Math.floor(59990 + Math.random() * 40000); // precios entre 59.990 y 99.990
-  const tallaMin = 38 + Math.floor(Math.random() * 3); // 38, 39, 40
-  const tallaMax = tallaMin + Math.floor(Math.random() * 5) + 1; // hasta 44
-  return {
-    id: i + 1,
-    nombre,
-    precio,
-    imagen: '../assets/img/zapatillas/zapatilla.png',
-    tallaMin,
-    tallaMax
-  };
-});
+// Generador de zapatillas
+function generarZapatillas() {
+  return Array.from({ length: 50 }, (_, i) => {
+    const nombre = `Modelo ${i + 1}`;
+    const tallaMin = 38 + Math.floor(Math.random() * 3); // 38, 39, 40
+    const tallaMax = tallaMin + Math.floor(Math.random() * 5) + 1; // hasta 44
+    return {
+      id: i + 1,
+      nombre,
+      precio: 50000 + 250 * i,
+      imagen: '../assets/img/zapatillas/zapatilla.png',
+      tallaMin,
+      tallaMax
+    };
+  });
+}
+
+// Persistencia con localStorage
+let zapatillas;
+if (localStorage.getItem('zapatillas')) {
+  zapatillas = JSON.parse(localStorage.getItem('zapatillas'));
+} else {
+  zapatillas = generarZapatillas();
+  localStorage.setItem('zapatillas', JSON.stringify(zapatillas));
+}
 
 const zapatillasPorPagina = 12;
 let paginaActual = 1;
