@@ -1,32 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- Indica el tipo de documento HTML5 -->
+<html lang="en"> <!-- Idioma principal del documento -->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Document</title>
+  <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/style.css"> <!-- Hoja de estilos personalizada -->
+  <link rel="icon" type="image/jpeg" href="../assets/img/logo-sin-letras.jpeg"> <!-- Favicon: logo en la pestaña del navegador -->
+  <title>Nosotros</title> <!-- Título de la pestaña -->
 </head>
 <body>
-<!-- HEADER -->
+
+<!-- =================== HEADER =================== -->
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
-      <div class="container-fluid">
-        <!-- Logo / Nombre empresa -->
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img src="assets/img/logo.png" alt="Logo Empresa" width="40" height="40" class="me-2">
-          <span>Nombre Empresa</span>
-        </a>
+
+    <!--
+      navbar:         Barra de navegación principal de Bootstrap.
+      navbar-expand-lg: Hace que la barra sea colapsable en pantallas pequeñas.
+      navbar-dark:    Usa colores oscuros para los textos y enlaces.
+      bg-dark:        Fondo oscuro para la barra.
+      sticky-top:     Fija la barra en la parte superior al hacer scroll.
+      shadow:         Agrega una sombra sutil debajo de la barra.
+    -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container-fluid"><!-- container-fluid: Hace que el contenido ocupe todo el ancho disponible -->
+          <!-- Logo / Nombre empresa -->
+          <!--
+            navbar-brand: Da formato especial al logo y nombre de la empresa en la barra de navegación.
+            d-flex: Aplica Flexbox para alinear horizontalmente los elementos hijos (logo y texto).
+            align-items-center: Centra verticalmente los elementos hijos dentro del contenedor flex.
+            href="index.html": Hace que al hacer clic en el logo, se regrese a la página principal.
+          -->
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
+              <!--
+                src="../assets/img/logo-sin-letras.jpeg": Ruta de la imagen del logo.
+                alt="Logo Empresa": Texto alternativo si la imagen no carga.
+                width="60" height="60": Tamaño fijo de la imagen.
+                style="object-fit:cover; border-radius:12px;": 'object-fit:cover' recorta la imagen para que llene el espacio sin deformarse; 'border-radius:12px' redondea las esquinas.
+                class="me-2": 'me-2' (margin-end) agrega margen a la derecha para separar el logo del texto.
+              -->
+             
+            
+          </a>
+          <!--
+            navbar-brand:   Estilo especial para el logo/nombre de la empresa en la barra.
+            d-flex:        Usa Flexbox para alinear horizontalmente los elementos hijos.
+            align-items-center: Centra verticalmente los elementos hijos.
+            href="index.html": Hace que al hacer clic en el logo, se regrese a la página principal.
+          -->
+          <!--
+            src="../assets/img/logo-sin-letras.jpeg": Ruta de la imagen del logo.
+            alt="Logo Empresa": Texto alternativo si la imagen no carga.
+            width="60" height="60": Tamaño fijo de la imagen.
+            style="object-fit:cover; border-radius:12px;": Ajusta la imagen para que no se deforme y le da bordes redondeados.
+            class="me-2": Agrega margen a la derecha para separar el logo del texto.
+          -->
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
+              <img src="../assets/img/logo-sin-letras.jpeg" alt="Logo Empresa" width="60" height="60" style="object-fit:cover; border-radius:12px;" class="me-2">
+    
+          <span>Sneaker HOOD</span>
+          </a>
 
         <!-- Botón responsive (hamburguesa) -->
+        <!--
+          navbar-toggler: Botón visible en pantallas pequeñas para mostrar/ocultar el menú.
+          data-bs-toggle="collapse": Indica que el botón controla un elemento colapsable.
+          data-bs-target="#navbarNav": ID del menú que se va a mostrar/ocultar.
+        -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span> <!-- Ícono de hamburguesa -->
         </button>
 
         <!-- Opciones de navegación -->
+        <!--
+          collapse navbar-collapse: Permite que el menú se colapse en móviles y se expanda en pantallas grandes.
+          id="navbarNav": Identificador para el menú colapsable.
+        -->
         <div class="collapse navbar-collapse" id="navbarNav">
+          <!--
+            navbar-nav: Contenedor de los enlaces de navegación.
+            mx-auto: Centra horizontalmente el menú.
+          -->
           <ul class="navbar-nav mx-auto">
+            <!-- nav-item: Cada elemento del menú. nav-link: Estilo de los enlaces. active: Marca el enlace actual. -->
             <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
             <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
@@ -34,7 +90,13 @@
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
           </ul>
 
-          <!-- Acciones a la derecha -->
+          <!--
+            d-flex align-items-center: Flexbox para alinear los botones a la derecha y centrarlos verticalmente.
+            btn btn-outline-danger: Botón con borde rojo.
+            btn btn-danger: Botón rojo sólido.
+            me-2, me-3: Margen a la derecha para separar los botones.
+            text-white fs-4: Ícono de carrito blanco y grande.
+          -->
           <div class="d-flex align-items-center">
             <a href="login.html" class="btn btn-outline-danger me-2">Login</a>
             <a href="registro.html" class="btn btn-danger me-3">Registro</a>
@@ -45,21 +107,73 @@
     </nav>
   </header>
 
-  <!-- FOOTER -->
-  <footer class="footer mt-auto py-4 bg-dark text-white">
+  <!-- ========== SECCIÓN NOSOTROS (principal) ========== -->
+  <section class="py-5 bg-light"><!--PADDING, EJE VERTICAL Y EL TAMAÑO DE ESCALA  1 REM = 16PX-->
+    <div class="container"> <!-- container: Centra el contenido y le da un ancho máximo -->
+      <div class="row align-items-center"> <!-- row: Fila de Bootstrap. align-items-center: Centra verticalmente las columnas -->
+        <div class="col-lg-6 mb-4 mb-lg-0"> <!-- col-lg-6: Ocupa 6 columnas (la mitad) en pantallas grandes. mb-4: margen abajo en móvil. mb-lg-0: sin margen abajo en grande -->
+          <img src="../assets/img/logo.jpg" alt="Equipo SNKR HOOD" class="img-fluid rounded-4 shadow"> <!-- img-fluid: imagen responsiva. rounded-4: bordes redondeados. shadow: sombra -->
+        </div>
+        <div class="col-lg-6"> <!-- col-lg-6: Ocupa la otra mitad en grande -->
+          <h1 class="display-5 fw-bold text-danger mb-3">Sobre Nosotros</h1> <!-- display-5: título grande. fw-bold: negrita. text-danger: rojo. mb-3: margen abajo -->
+          <p class="lead mb-4">En <b>SNKR HOOD</b> somos más que una tienda de zapatillas: somos una comunidad apasionada por la cultura urbana, la innovación y el estilo. Desde nuestros inicios, nos hemos dedicado a ofrecer productos originales, tendencias exclusivas y una experiencia de compra única para los amantes del streetwear.</p> <!-- lead: texto destacado. mb-4: margen abajo -->
+          <ul class="list-unstyled mb-4"> <!-- list-unstyled: quita los puntos de la lista. mb-4: margen abajo -->
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-danger me-2"></i> Selección curada de las mejores marcas y modelos</li> <!-- mb-2: margen abajo. bi bi-check-circle-fill: ícono de Bootstrap Icons. text-danger: rojo. me-2: margen a la derecha -->
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-danger me-2"></i> Atención personalizada y asesoría experta</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-danger me-2"></i> Compromiso con la autenticidad y la calidad</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-danger me-2"></i> Comunidad activa y eventos exclusivos</li>
+          </ul>
+          <a href="contacto.html" class="btn btn-danger btn-lg px-4">Contáctanos</a> <!-- btn: botón Bootstrap. btn-danger: rojo. btn-lg: grande. px-4: padding horizontal -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VALORES Y MISIÓN ========== -->
+  <section class="py-5 bg-dark text-white"> <!-- py-5: padding vertical grande. bg-dark: fondo oscuro. text-white: texto blanco -->
+    <div class="container">
+      <div class="row text-center"> <!-- row: fila. text-center: centra el texto en columnas -->
+        <div class="col-md-4 mb-4"> <!-- col-md-4: ocupa 4 columnas en pantallas medianas. mb-4: margen abajo -->
+          <div class="p-4 rounded-4 bg-secondary h-100"> <!-- p-4: padding. rounded-4: bordes redondeados. bg-secondary: fondo gris. h-100: altura 100% -->
+            <i class="bi bi-people-fill display-4 text-danger mb-3"></i> <!-- bi bi-people-fill: ícono. display-4: tamaño grande. text-danger: rojo. mb-3: margen abajo -->
+            <h3 class="fw-bold">Nuestra Misión</h3> <!-- fw-bold: negrita -->
+            <p>Inspirar y conectar a los fanáticos del streetwear, brindando acceso a productos auténticos y experiencias memorables.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="p-4 rounded-4 bg-secondary h-100">
+            <i class="bi bi-lightning-fill display-4 text-danger mb-3"></i>
+            <h3 class="fw-bold">Innovación</h3>
+            <p>Nos mantenemos a la vanguardia de las tendencias, trayendo lo último en moda urbana y tecnología sneaker.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="p-4 rounded-4 bg-secondary h-100">
+            <i class="bi bi-heart-fill display-4 text-danger mb-3"></i>
+            <h3 class="fw-bold">Pasión</h3>
+            <p>Vivimos y respiramos la cultura sneaker, compartiendo nuestra pasión con cada cliente y colaborador.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== FOOTER =================== -->
+  <footer class="footer mt-auto py-4 bg-dark text-white"> <!-- Pie de página -->
     <div class="container">
       <div class="row">
         
-        <!-- Logo + descripción -->
+  <!-- Logo + descripción de la empresa en el footer -->
         <div class="col-md-4 mb-3">
           <a href="index.html" class="d-flex align-items-center mb-2 text-decoration-none text-white">
-            <img src="assets/img/logo.png" alt="Logo Empresa" width="40" height="40" class="me-2">
-            <span class="fs-5 fw-bold">Nombre Empresa</span>
+            <img src="../assets/img/logo-sin-letras.jpeg" alt="Logo Empresa" width="60" height="60" style="object-fit:cover; border-radius:12px;" class="me-2">
+            <span class="fs-5 fw-bold">SNKR HOOD</span>
           </a>
-          <p class="small">Breve descripción de la tienda o slogan (placeholder).</p>
+          <p class="small"> Somos mas que una tienda  .</p>
+          
         </div>
 
-        <!-- Navegación rápida -->
+  <!-- Navegación rápida (enlaces útiles) en el footer -->
         <div class="col-md-4 mb-3">
           <h6 class="fw-bold text-uppercase">Enlaces útiles</h6>
           <ul class="list-unstyled">
@@ -71,7 +185,7 @@
           </ul>
         </div>
 
-        <!-- Contacto + redes -->
+  <!-- Contacto y redes sociales en el footer -->
         <div class="col-md-4 mb-3">
           <h6 class="fw-bold text-uppercase">Contacto</h6>
           <p class="mb-1">📧 correo@empresa.com</p>
@@ -85,14 +199,15 @@
 
       </div>
 
-      <!-- Línea inferior -->
+  <!-- Línea inferior de derechos reservados -->
       <div class="text-center pt-3 border-top border-secondary">
-        <small>© 2025 Nombre Empresa. Todos los derechos reservados.</small>
+        <small>© 2025 Sneaker HOOD. Todos los derechos reservados.</small>
       </div>
     </div>
   </footer>
 
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
