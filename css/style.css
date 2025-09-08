@@ -2,7 +2,7 @@
 :root {
   --rojo-empresa: #d62828;
   --negro-empresa: #1a1a1a;
-  --blanco-suave: #fff; /* Blanco puro */
+  --blanco-suave: #828282; /* Blanco no brillante */
 }
 
 /* Aplicar color de fondo personalizado */
@@ -16,7 +16,8 @@ body {
   background-color: var(--negro-empresa) !important;
 }
 
-.navbar-brand span {
+.navbar-brand span,
+.encabezado-ppal span {
   color: var(--blanco-suave);
   font-weight: bold;
 }
