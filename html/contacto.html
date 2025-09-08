@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
-  <title>Document</title>
+  <link rel="icon" type="image/jpeg" href="../assets/img/logo-sin-letras.jpeg">
+  <title>Contactanos</title>
 </head>
 <body>
 <!-- HEADER -->
@@ -14,8 +15,8 @@
       <div class="container-fluid">
         <!-- Logo / Nombre empresa -->
         <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img src="assets/img/logo.png" alt="Logo Empresa" width="40" height="40" class="me-2">
-          <span>Nombre Empresa</span>
+          <img src="../assets/img/logo-sin-letras.jpeg" alt="Logo Empresa" width="48" height="48" style="object-fit:cover; border-radius:12px;" class="me-2">
+          <span class="fs-5 fw-bold">Sneaker HOOD </span>
         </a>
 
         <!-- Botón responsive (hamburguesa) -->
@@ -50,26 +51,7 @@
     <div class="container">
       <div class="row">
         
-        <!-- Logo + descripción -->
-        <div class="col-md-4 mb-3">
-          <a href="index.html" class="d-flex align-items-center mb-2 text-decoration-none text-white">
-            <img src="assets/img/logo.png" alt="Logo Empresa" width="40" height="40" class="me-2">
-            <span class="fs-5 fw-bold">Nombre Empresa</span>
-          </a>
-          <p class="small">Breve descripción de la tienda o slogan (placeholder).</p>
-        </div>
-
-        <!-- Navegación rápida -->
-        <div class="col-md-4 mb-3">
-          <h6 class="fw-bold text-uppercase">Enlaces útiles</h6>
-          <ul class="list-unstyled">
-            <li><a href="index.html" class="text-white text-decoration-none">Inicio</a></li>
-            <li><a href="productos.html" class="text-white text-decoration-none">Productos</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+        
   <!-- ========== FORMULARIO DE CONTACTO (centrado y responsivo, estructura tipo nosotros) ========== -->
   <section class="py-5 bg-light">
     <div class="container">
@@ -82,6 +64,9 @@
             <h2 class="text-center text-danger fw-bold mb-3">Contáctanos</h2>
             <p class="text-center mb-4">¿Tienes dudas, sugerencias o necesitas ayuda? Completa el formulario y te responderemos a la brevedad.</p>
             <form>
+              <div id="alerta-exito" class="alert alert-success d-none" role="alert">
+                Su mensaje fue enviado correctamente.
+              </div>
               <div class="mb-3">
                 <label for="nombre" class="form-label fw-bold">Nombre</label>
                 <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
@@ -106,6 +91,25 @@
                 <button type="submit" class="btn btn-danger btn-lg fw-bold">Enviar mensaje</button>
               </div>
             </form>
+  <script>
+    // Validación y mensaje de éxito al enviar el formulario
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('form');
+      const alerta = document.getElementById('alerta-exito');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (form.checkValidity()) {
+          alerta.classList.remove('d-none');
+          form.reset();
+          setTimeout(() => {
+            alerta.classList.add('d-none');
+          }, 3000);S
+        } else {
+          form.reportValidity();
+        }
+      });
+    });
+  </script>
           </div>
         </div>
       </div>
@@ -117,10 +121,10 @@
         <!-- Logo + descripción -->
         <div class="col-md-4 mb-3">
           <a href="index.html" class="d-flex align-items-center mb-2 text-decoration-none text-white">
-            <img src="assets/img/logo.png" alt="Logo Empresa" width="40" height="40" class="me-2">
-            <span class="fs-5 fw-bold">Nombre Empresa</span>
+            <img src="../assets/img/logo-sin-letras.jpeg" alt="Logo Empresa" width="40" height="40" style="object-fit:cover; border-radius:12px;" class="me-2">
+            <span class="fs-5 fw-bold">Sneaker HOOD</span>
           </a>
-          <p class="small">Breve descripción de la tienda o slogan (placeholder).</p>
+          <p class="small">Somos mas que una tienda de zapatillas</p>
         </div>
         <!-- Navegación rápida -->
         <div class="col-md-4 mb-3">
@@ -149,26 +153,9 @@
     </div>
   </footer>
 
-        <!-- Contacto + redes -->
-        <div class="col-md-4 mb-3">
-                  <a href="index.html" class="d-flex align-items-center mb-2 text-decoration-none text-white">
-                    <img src="assets/img/logo-sin-letras.jpeg" alt="Logo Empresa" width="60" height="60" style="object-fit:cover; border-radius:12px;" class="me-2">
-                    <span class="fs-5 fw-bold">SNKR HOOD</span>
-                  </a>
-                  <p class="small">Breve Venta de zapatillas.</p>
-            <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="text-white fs-5"><i class="bi bi-twitter"></i></a>
-          </div>
-        </div>
+      
 
-      </div>
-
-      <!-- Línea inferior -->
-      <div class="text-center pt-3 border-top border-secondary">
-        <small>© 2025 Nombre Empresa. Todos los derechos reservados.</small>
-      </div>
-    </div>
-  </footer>
+    
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
