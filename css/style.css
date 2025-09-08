@@ -16,7 +16,8 @@ body {
   background-color: var(--negro-empresa) !important;
 }
 
-.navbar-brand span {
+.navbar-brand span,
+.encabezado-ppal span {
   color: var(--blanco-suave);
   font-weight: bold;
 }
