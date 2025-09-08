@@ -1,11 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Panel Administrador | Productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+      .admin-sidebar {
+        background: var(--blanco-suave);
+        min-height: 100vh;
+        border-right: 2px solid var(--negro-empresa);
+      }
+      .admin-sidebar .nav-link {
+        color: var(--negro-empresa);
+        font-weight: 500;
+        padding: 12px 18px;
+        border-radius: 8px;
+        margin-bottom: 4px;
+      }
+      .admin-sidebar .nav-link.active, .admin-sidebar .nav-link:hover {
+        background: var(--rojo-empresa);
+        color: #fff;
+      }
+      .admin-sidebar .logo {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--rojo-empresa);
+        letter-spacing: 1px;
+      }
+      .admin-sidebar .bi {
+        margin-right: 8px;
+      }
+      .admin-main-content {
+        padding: 32px 24px;
+      }
+      .table thead {
+        background: var(--negro-empresa);
+        color: var(--blanco-suave);
+      }
+      .table tbody tr {
+        background: var(--blanco-suave);
+        color: var(--negro-empresa);
+      }
+      .btn-nuevo {
+        background: var(--negro-empresa);
+        color: var(--blanco-suave);
+        font-weight: bold;
+        border-radius: 6px;
+      }
+      .btn-nuevo:hover {
+        background: var(--rojo-empresa);
+        color: #fff;
+      }
+      .pagination .page-link {
+        color: var(--negro-empresa);
+        border-radius: 4px;
+      }
+      .pagination .page-link.active, .pagination .page-link:hover {
+        background: var(--rojo-empresa);
+        color: #fff;
+        border: none;
+      }
+      @media (max-width: 991px) {
+        .admin-sidebar {
+          min-height: auto;
+          border-right: none;
+          border-bottom: 2px solid var(--negro-empresa);
+        }
+      }
+    </style>
 </head>
 <body>
-    
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <!-- Sidebar -->
+            <nav class="col-auto col-lg-2 admin-sidebar d-flex flex-column py-3">
+                <div class="logo mb-4 px-3 d-flex align-items-center">
+                    <img src="../assets/img/logo-sin-letras.jpeg" alt="Logo" width="36" height="36" class="me-2">
+                    SNKR HOOD
+                </div>
+                <ul class="nav flex-column mb-auto">
+                    <li><a href="index.html" class="nav-link"><i class="bi bi-house-door"></i> Dashboard</a></li>
+                    <li><a href="productos.html" class="nav-link active"><i class="bi bi-box-seam"></i> Productos</a></li>
+                    <li><a href="producto-nuevo.html" class="nav-link"><i class="bi bi-plus-square"></i> Nuevo Producto</a></li>
+                    <li><a href="usuarios.html" class="nav-link"><i class="bi bi-people"></i> Usuarios</a></li>
+                    <li><a href="usuario-nuevo.html" class="nav-link"><i class="bi bi-person-plus"></i> Nuevo Usuario</a></li>
+                </ul>
+                <hr>
+                <ul class="nav flex-column mt-auto">
+                    <li><a href="#" class="nav-link"><i class="bi bi-gear"></i> Configuración</a></li>
+                    <li><a href="#" class="nav-link"><i class="bi bi-question-circle"></i> Ayuda</a></li>
+                    <li>
+                        <a href="../index.html" class="nav-link text-danger fw-bold" style="background-color: var(--negro-empresa);"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Main -->
+            <div class="col p-0">
+                <div class="admin-main-content">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="fw-bold" style="color: var(--negro-empresa);">Productos</h2>
+                        <a href="producto-nuevo.html" class="btn btn-nuevo">+ NUEVO PRODUCTO</a>
+                    </div>
+                    <div class="mb-3 d-flex gap-2 flex-wrap">
+                        <input type="text" id="busquedaProducto" class="form-control w-auto" placeholder="Buscar producto...">
+                        <select id="filtroTalla" class="form-select w-auto">
+                            <option value="Todas las tallas">Todas las tallas</option>
+                            <option value="38">Talla 38</option>
+                            <option value="39">Talla 39</option>
+                            <option value="40">Talla 40</option>
+                            <option value="41">Talla 41</option>
+                            <option value="42">Talla 42</option>
+                            <option value="43">Talla 43</option>
+                            <option value="44">Talla 44</option>
+                        </select>
+                        <select id="ordenarPor" class="form-select w-auto">
+                            <option>Más populares</option>
+                            <option>Precio: menor a mayor</option>
+                            <option>Precio: mayor a menor</option>
+                        </select>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered align-middle" id="tablaZapatillas">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Tallas</th>
+                                    <th>Imagen</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- JS: filas de productos -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <nav aria-label="Paginación de productos" class="mt-3">
+                        <ul class="pagination justify-content-center" id="paginacionProductos">
+                            <!-- JS: paginación -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/zapatillas.js"></script>
+    <script>
+    // Usamos las variables globales de zapatillas.js
+    function renderTablaZapatillas() {
+        const tbody = document.querySelector('#tablaZapatillas tbody');
+        tbody.innerHTML = '';
+
+        // Filtrar por búsqueda
+        let filtradas = zapatillas.filter(z => 
+            z.nombre.toLowerCase().includes(filtroBusqueda.toLowerCase())
+        );
+
+        // Filtrar por talla
+        if (filtroTalla !== 'Todas las tallas') {
+            const tallaNum = parseInt(filtroTalla);
+            filtradas = filtradas.filter(z => tallaNum >= z.tallaMin && tallaNum <= z.tallaMax);
+        }
+
+        // Ordenar
+        if (filtroOrden === 'Precio: menor a mayor') {
+            filtradas.sort((a, b) => a.precio - b.precio);
+        } else if (filtroOrden === 'Precio: mayor a menor') {
+            filtradas.sort((a, b) => b.precio - a.precio);
+        }
+
+        // Paginación
+        const inicio = (paginaActual - 1) * zapatillasPorPagina;
+        const fin = inicio + zapatillasPorPagina;
+        filtradas.slice(inicio, fin).forEach(z => {
+            const tallas = [];
+            for (let t = z.tallaMin; t <= z.tallaMax; t++) tallas.push(t);
+
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${z.id}</td>
+                <td>${z.nombre}</td>
+                <td>$${z.precio.toLocaleString()}</td>
+                <td>${tallas.join(', ')}</td>
+                <td><img src="${z.imagen}" alt="${z.nombre}" style="width:48px;height:48px;border-radius:8px;"></td>
+                <td>
+                    <a href="producto-nuevo.html?id=${z.id}" class="btn btn-sm btn-outline-danger" title="Editar"><i class="bi bi-pencil"></i></a>
+                    <button class="btn btn-sm btn-outline-secondary" title="Eliminar" onclick="eliminarProducto(${z.id})"><i class="bi bi-trash"></i></button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        renderPaginacionProductos(filtradas.length);
+    }
+
+    function renderPaginacionProductos(totalFiltradas) {
+        const totalPaginas = Math.ceil(totalFiltradas / zapatillasPorPagina);
+        const paginacion = document.getElementById('paginacionProductos');
+        paginacion.innerHTML = '';
+
+        for (let i = 1; i <= totalPaginas; i++) {
+            const li = document.createElement('li');
+            li.className = `page-item${i === paginaActual ? ' active' : ''}`;
+            li.innerHTML = `<button class="page-link">${i}</button>`;
+            li.querySelector('button').onclick = () => {
+                paginaActual = i;
+                renderTablaZapatillas();
+                window.scrollTo({ top: document.getElementById('tablaZapatillas').offsetTop, behavior: 'smooth' });
+            };
+            paginacion.appendChild(li);
+        }
+    }
+
+    function eliminarProducto(id) {
+        if (confirm('¿Seguro que deseas eliminar este producto?')) {
+            zapatillas = zapatillas.filter(z => z.id !== id);
+            localStorage.setItem('zapatillas', JSON.stringify(zapatillas));
+            renderTablaZapatillas();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('busquedaProducto').addEventListener('input', e => {
+            filtroBusqueda = e.target.value;
+            paginaActual = 1;
+            renderTablaZapatillas();
+        });
+        document.getElementById('filtroTalla').addEventListener('change', e => {
+            filtroTalla = e.target.value;
+            paginaActual = 1;
+            renderTablaZapatillas();
+        });
+        document.getElementById('ordenarPor').addEventListener('change', e => {
+            filtroOrden = e.target.value;
+            paginaActual = 1;
+            renderTablaZapatillas();
+        });
+
+        renderTablaZapatillas();
+    });
+    </script>
 </body>
 </html>

@@ -3,9 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nuevo Producto | Admin SNKR HOOD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+      .admin-sidebar {
+        background: var(--blanco-suave);
+        min-height: 100vh;
+        border-right: 2px solid var(--negro-empresa);
+      }
+      .admin-sidebar .nav-link {
+        color: var(--negro-empresa);
+        font-weight: 500;
+        padding: 12px 18px;
+        border-radius: 8px;
+        margin-bottom: 4px;
+      }
+      .admin-sidebar .nav-link.active, .admin-sidebar .nav-link:hover {
+        background: var(--rojo-empresa);
+        color: #fff;
+      }
+      .admin-sidebar .logo {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--rojo-empresa);
+        letter-spacing: 1px;
+      }
+      .admin-sidebar .bi {
+        margin-right: 8px;
+      }
+      .admin-main-content {
+        padding: 32px 24px;
+      }
+      .card-title {
+        color: var(--rojo-empresa);
+      }
+      .form-label {
+        color: var(--negro-empresa);
+        font-weight: 500;
+      }
+      .card-header {
+        background: var(--blanco-suave);
+        color: var(--negro-empresa);
+        font-weight: bold;
+        font-size: 1rem;
+      }
+      @media (max-width: 991px) {
+        .admin-sidebar {
+          min-height: auto;
+          border-right: none;
+          border-bottom: 2px solid var(--negro-empresa);
+        }
+      }
+    </style>
 </head>
 <body>
-    
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <!-- Sidebar -->
+            <nav class="col-auto col-lg-2 admin-sidebar d-flex flex-column py-3">
+                <div class="logo mb-4 px-3 d-flex align-items-center">
+                    <img src="../assets/img/logo-sin-letras.jpeg" alt="Logo" width="36" height="36" class="me-2">
+                    SNKR HOOD
+                </div>
+                <ul class="nav flex-column mb-auto">
+                    <li><a href="index.html" class="nav-link"><i class="bi bi-house-door"></i> Dashboard</a></li>
+                    <li><a href="productos.html" class="nav-link"><i class="bi bi-box-seam"></i> Productos</a></li>
+                    <li><a href="producto-nuevo.html" class="nav-link active"><i class="bi bi-plus-square"></i> Nuevo Producto</a></li>
+                    <li><a href="usuarios.html" class="nav-link"><i class="bi bi-people"></i> Usuarios</a></li>
+                    <li><a href="usuario-nuevo.html" class="nav-link"><i class="bi bi-person-plus"></i> Nuevo Usuario</a></li>
+                </ul>
+                <hr>
+                <ul class="nav flex-column mt-auto">
+                    <li><a href="#" class="nav-link"><i class="bi bi-gear"></i> Configuración</a></li>
+                    <li><a href="#" class="nav-link"><i class="bi bi-question-circle"></i> Ayuda</a></li>
+                    <li>
+                        <a href="../index.html" class="nav-link text-danger fw-bold" style="background-color: var(--negro-empresa);"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Main -->
+            <div class="col p-0">
+                <div class="admin-main-content">
+                    <h2 class="fw-bold mb-4" style="color: var(--negro-empresa);">NUEVO PRODUCTO</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <div class="card shadow border-0 rounded-4">
+                                <div class="card-header" style="background-color: var(--rojo-empresa);">Registro de zapatilla</div>
+                                <div class="card-body">
+                                    <form id="formProductoNuevo" novalidate>
+                                        <div class="mb-3">
+                                            <label for="nombre" class="form-label">Nombre del modelo</label>
+                                            <input type="text" class="form-control" id="nombre" name="nombre" required minlength="3">
+                                            <div class="invalid-feedback">Ingrese el nombre del modelo (mínimo 3 caracteres).</div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="precio" class="form-label">Precio</label>
+                                            <input type="number" class="form-control" id="precio" name="precio" required min="10000" step="100">
+                                            <div class="invalid-feedback">Ingrese un precio válido (mínimo $10.000).</div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="imagen" class="form-label">URL de imagen</label>
+                                            <input type="text" class="form-control" id="imagen" name="imagen" required placeholder="../assets/img/zapatillas/zapatilla.png">
+                                            <div class="invalid-feedback">Ingrese la URL de la imagen.</div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-12 col-md-6">
+                                                <label for="tallaMin" class="form-label">Talla mínima</label>
+                                                <input type="number" class="form-control" id="tallaMin" name="tallaMin" required min="35" max="50">
+                                                <div class="invalid-feedback">Ingrese la talla mínima (35-50).</div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <label for="tallaMax" class="form-label">Talla máxima</label>
+                                                <input type="number" class="form-control" id="tallaMax" name="tallaMax" required min="35" max="50">
+                                                <div class="invalid-feedback">Ingrese la talla máxima (35-50).</div>
+                                            </div>
+                                        </div>
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-danger fw-bold">Registrar producto</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Validación Bootstrap personalizada
+      document.getElementById('formProductoNuevo').addEventListener('submit', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        const form = event.target;
+        const tallaMin = parseInt(form.tallaMin.value);
+        const tallaMax = parseInt(form.tallaMax.value);
+        if (tallaMax < tallaMin) {
+          form.tallaMax.setCustomValidity('La talla máxima debe ser mayor o igual a la mínima');
+        } else {
+          form.tallaMax.setCustomValidity('');
+        }
+        if (form.checkValidity()) {
+          alert('¡Producto registrado exitosamente!');
+          form.reset();
+          form.classList.remove('was-validated');
+        } else {
+          form.classList.add('was-validated');
+        }
+      });
+    </script>
 </body>
 </html>
