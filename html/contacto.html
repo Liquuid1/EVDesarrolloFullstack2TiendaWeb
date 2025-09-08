@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <title>Document</title>
 </head>
 <body>
@@ -13,9 +13,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
       <div class="container-fluid">
         <!-- Logo / Nombre empresa -->
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img src="assets/img/logo.png" alt="Logo Empresa" width="40" height="40" class="me-2">
-          <span>Nombre Empresa</span>
+        <a class="navbar-brand d-flex align-items-center" href="../ index.html">
+          <img src="../assets/img/logo-sin-letras.jpeg" alt="Logo Empresa" width="60" height="60" class="me-2">
+          <span>SNKR HOOD</span>
         </a>
 
         <!-- Botón responsive (hamburguesa) -->
@@ -27,11 +27,11 @@
         <!-- Opciones de navegación -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
             <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
             <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-            <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+            <li class="nav-item"><a class="nav-link active" href="contacto.html">Contacto</a></li>
           </ul>
 
           <!-- Acciones a la derecha -->
@@ -44,41 +44,15 @@
       </div>
     </nav>
   </header>
-
-  <!-- FOOTER -->
-  <footer class="footer mt-auto py-4 bg-dark text-white">
-    <div class="container">
-      <div class="row">
-        
-        <!-- Logo + descripción -->
-        <div class="col-md-4 mb-3">
-          <a href="index.html" class="d-flex align-items-center mb-2 text-decoration-none text-white">
-            <img src="assets/img/logo.png" alt="Logo Empresa" width="40" height="40" class="me-2">
-            <span class="fs-5 fw-bold">Nombre Empresa</span>
-          </a>
-          <p class="small">Breve descripción de la tienda o slogan (placeholder).</p>
-        </div>
-
-        <!-- Navegación rápida -->
-        <div class="col-md-4 mb-3">
-          <h6 class="fw-bold text-uppercase">Enlaces útiles</h6>
-          <ul class="list-unstyled">
-            <li><a href="index.html" class="text-white text-decoration-none">Inicio</a></li>
-            <li><a href="productos.html" class="text-white text-decoration-none">Productos</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
   <!-- ========== FORMULARIO DE CONTACTO (centrado y responsivo, estructura tipo nosotros) ========== -->
-  <section class="py-5 bg-light">
+  <section class="py-5" style="background-color: var(--blanco-empresa);">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 mb-4 mb-lg-0 d-none d-lg-block">
           <img src="../assets/img/logo.jpg" alt="Equipo SNKR HOOD" class="img-fluid rounded-4 shadow">
         </div>
         <div class="col-lg-6">
-          <div class="card shadow rounded-4 p-4 border-0 w-100" style="max-width: 500px; margin: 0 auto;">
+          <div class="card shadow rounded-4 p-4 border-0 w-100" style="max-width: 500px; margin: 0 auto; background-color: var(--negro-empresa); color: white;">
             <h2 class="text-center text-danger fw-bold mb-3">Contáctanos</h2>
             <p class="text-center mb-4">¿Tienes dudas, sugerencias o necesitas ayuda? Completa el formulario y te responderemos a la brevedad.</p>
             <form>
@@ -111,6 +85,8 @@
       </div>
     </div>
   </section>
+
+  <!-- FOOTER -->
   <footer class="footer mt-auto py-4 bg-dark text-white">
     <div class="container">
       <div class="row">
@@ -142,27 +118,6 @@
           </div>
         </div>
       </div>
-      <!-- Línea inferior -->
-      <div class="text-center pt-3 border-top border-secondary">
-        <small>© 2025 Nombre Empresa. Todos los derechos reservados.</small>
-      </div>
-    </div>
-  </footer>
-
-        <!-- Contacto + redes -->
-        <div class="col-md-4 mb-3">
-                  <a href="index.html" class="d-flex align-items-center mb-2 text-decoration-none text-white">
-                    <img src="assets/img/logo-sin-letras.jpeg" alt="Logo Empresa" width="60" height="60" style="object-fit:cover; border-radius:12px;" class="me-2">
-                    <span class="fs-5 fw-bold">SNKR HOOD</span>
-                  </a>
-                  <p class="small">Breve Venta de zapatillas.</p>
-            <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="text-white fs-5"><i class="bi bi-twitter"></i></a>
-          </div>
-        </div>
-
-      </div>
-
       <!-- Línea inferior -->
       <div class="text-center pt-3 border-top border-secondary">
         <small>© 2025 Nombre Empresa. Todos los derechos reservados.</small>

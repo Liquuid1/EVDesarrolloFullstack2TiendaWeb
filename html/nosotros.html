@@ -6,6 +6,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/style.css"> <!-- Hoja de estilos personalizada -->
   <link rel="icon" type="image/jpeg" href="../assets/img/logo-sin-letras.jpeg"> <!-- Favicon: logo en la pestaña del navegador -->
+  <link rel="stylesheet" href="../css/style.css">
   <title>Nosotros</title> <!-- Título de la pestaña -->
 </head>
 <body>
@@ -30,7 +31,7 @@
             align-items-center: Centra verticalmente los elementos hijos dentro del contenedor flex.
             href="index.html": Hace que al hacer clic en el logo, se regrese a la página principal.
           -->
-          <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <a class="navbar-brand d-flex align-items-center" href="../index.html">
               <!--
                 src="../assets/img/logo-sin-letras.jpeg": Ruta de la imagen del logo.
                 alt="Logo Empresa": Texto alternativo si la imagen no carga.
@@ -54,10 +55,10 @@
             style="object-fit:cover; border-radius:12px;": Ajusta la imagen para que no se deforme y le da bordes redondeados.
             class="me-2": Agrega margen a la derecha para separar el logo del texto.
           -->
-          <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <a class="navbar-brand d-flex align-items-center" href="../index.html">
               <img src="../assets/img/logo-sin-letras.jpeg" alt="Logo Empresa" width="60" height="60" style="object-fit:cover; border-radius:12px;" class="me-2">
     
-          <span>Sneaker HOOD</span>
+          <span>SNKR HOOD</span>
           </a>
 
         <!-- Botón responsive (hamburguesa) -->
@@ -83,10 +84,10 @@
           -->
           <ul class="navbar-nav mx-auto">
             <!-- nav-item: Cada elemento del menú. nav-link: Estilo de los enlaces. active: Marca el enlace actual. -->
-            <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
             <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link active" href="nosotros.html">Nosotros</a></li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
           </ul>
 
@@ -108,7 +109,7 @@
   </header>
 
   <!-- ========== SECCIÓN NOSOTROS (principal) ========== -->
-  <section class="py-5 bg-light"><!--PADDING, EJE VERTICAL Y EL TAMAÑO DE ESCALA  1 REM = 16PX-->
+  <section class="py-5" style="background-color: var(--blanco-empresa);"><!--PADDING, EJE VERTICAL Y EL TAMAÑO DE ESCALA  1 REM = 16PX-->
     <div class="container"> <!-- container: Centra el contenido y le da un ancho máximo -->
       <div class="row align-items-center"> <!-- row: Fila de Bootstrap. align-items-center: Centra verticalmente las columnas -->
         <div class="col-lg-6 mb-4 mb-lg-0"> <!-- col-lg-6: Ocupa 6 columnas (la mitad) en pantallas grandes. mb-4: margen abajo en móvil. mb-lg-0: sin margen abajo en grande -->
