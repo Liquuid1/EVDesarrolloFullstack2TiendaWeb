@@ -56,6 +56,9 @@
             <h2 class="text-center text-danger fw-bold mb-3">Contáctanos</h2>
             <p class="text-center mb-4">¿Tienes dudas, sugerencias o necesitas ayuda? Completa el formulario y te responderemos a la brevedad.</p>
             <form>
+              <div id="alerta-exito" class="alert alert-success d-none" role="alert">
+                Su mensaje fue enviado correctamente.
+              </div>
               <div class="mb-3">
                 <label for="nombre" class="form-label fw-bold">Nombre</label>
                 <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
@@ -80,6 +83,25 @@
                 <button type="submit" class="btn btn-danger btn-lg fw-bold">Enviar mensaje</button>
               </div>
             </form>
+  <script>
+    // Validación y mensaje de éxito al enviar el formulario
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('form');
+      const alerta = document.getElementById('alerta-exito');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (form.checkValidity()) {
+          alerta.classList.remove('d-none');
+          form.reset();
+          setTimeout(() => {
+            alerta.classList.add('d-none');
+          }, 3000);S
+        } else {
+          form.reportValidity();
+        }
+      });
+    });
+  </script>
           </div>
         </div>
       </div>
